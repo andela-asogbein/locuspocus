@@ -5,12 +5,12 @@
 
       <item
           android:id="@+id/view_locations_by_date"
-          android:title="@string/action_settings"
+          android:title="Locations By Date"
           android:icon="@drawable/date_icon"
           app:showAsAction="always"/>
 
       <item android:id="@+id/view_locations_by_time_spent"
-            android:title="@string/action_settings"
+            android:title="Locations By Time Spent"
             android:icon="@drawable/location_icon"
             app:showAsAction="always"/>
 </menu>
