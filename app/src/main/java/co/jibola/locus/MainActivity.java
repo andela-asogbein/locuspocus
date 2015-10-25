@@ -1,11 +1,15 @@
 package co.jibola.locus;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import co.jibola.locus.listByDate.ListByDateActivity;
+import co.jibola.locus.listByTimeSpent.LocationsByTimeSpentActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,10 +39,12 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.view_locations_by_date) {
-            return true;
+            Intent i = new Intent(MainActivity.this, ListByDateActivity.class);
+            startActivity(i);
         }
         else if(id == R.id.view_locations_by_time_spent){
-            return true;
+            Intent i = new Intent(MainActivity.this, LocationsByTimeSpentActivity.class);
+            startActivity(i);
         }
         return super.onOptionsItemSelected(item);
     }
