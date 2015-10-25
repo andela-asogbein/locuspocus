@@ -65,7 +65,7 @@ public class LocationListenerService extends Service implements LocationListener
 
     public void startLocationUpdates() {
         LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
-        Toast.makeText(this, "Keeping track of locations you stay in for "+ minutesToTrackLocation, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Keeping track of locations you stay in for "+ minutesToTrackLocation +" minute(s)", Toast.LENGTH_SHORT).show();
         mills1 = new Date().getTime();
     }
 
@@ -86,7 +86,7 @@ public class LocationListenerService extends Service implements LocationListener
     protected void createLocationRequest() {
         mLocationRequest = new LocationRequest();
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-//        mLocationRequest.setSmallestDisplacement(1);
+        mLocationRequest.setSmallestDisplacement(1);
         mLocationRequest.setInterval(UPDATE_INTERVAL_IN_MILLISECONDS);
         mLocationRequest.setFastestInterval(FASTEST_UPDATE_INTERVAL_IN_MILLISECONDS);
     }
@@ -95,14 +95,10 @@ public class LocationListenerService extends Service implements LocationListener
     public void onLocationChanged(Location location) {
         mCurrentLocation = location;
         mills2 = new Date().getTime();
-//        if(mills2-mills1 >= (minutesToTrackLocation * 60 * 1000)){
-//            //save to database
-//            String address = getAddress(location.getLatitude(), location.getLongitude());
-//            mLocationBaseHelper.insertLocation(location.getLatitude(), location.getLongitude(), currentDate(), mills2 - mills1, address);
-//        }
-//        Toast.makeText(this, location.getLatitude() + ", " + location.getLongitude(), Toast.LENGTH_SHORT).show();
-        String address = getAddress(location.getLatitude(), location.getLongitude());
-        mLocationBaseHelper.insertLocation(location.getLatitude(), location.getLongitude(), currentDate(), mills2 - mills1, address);
+        if(mills2-mills1 >= (minutesToTrackLocation * 60 * 1000)){
+            String address = getAddress(location.getLatitude(), location.getLongitude());
+            mLocationBaseHelper.insertLocation(location.getLatitude(), location.getLongitude(), currentDate(), mills2 - mills1, address);
+        }
         mills1 = mills2;
     }
 

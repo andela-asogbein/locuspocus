@@ -48,4 +48,11 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void onBackPressed() {
+        Intent mainActivity = new Intent(Intent.ACTION_MAIN);
+        mainActivity.addCategory(Intent.CATEGORY_HOME);
+        mainActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(mainActivity);
+    }
 }
