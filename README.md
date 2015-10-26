@@ -4,7 +4,9 @@
 Any location that a user stays in for a predetermined amount of time is automatically saved and the user can subsequently view locations where she has spent the most time based on the date the locations were saved.
 A user can also view the amount of time spent in all saved locations.
 
-This application makes use of the[ Google Play services location API](https://developers.google.com/android/reference/com/google/android/gms/location/package-summary) to get the coordinates and address of a user.
+Users can also view locations with the aid of Google Maps embedded inside the app.
+
+This application makes use of the[ Google Play services location API](https://developers.google.com/android/reference/com/google/android/gms/location/package-summary) to get the coordinates and address of a user. It also users Google Maps to show a user's saved locations on a map.
 
 Locations of interest are saved in [SQLite](http://developer.android.com/reference/android/database/sqlite/package-summary.html), a lightweight database system which is built into android devices.
 
