@@ -1,5 +1,5 @@
 # Locus
-*Locus* is an android app that lets users keep track of locations where they spend their time.
+[*Locus*](https://play.google.com/store/apps/details?id=co.jibola.locus) is an android app that lets users keep track of locations where they spend their time.
 
 Any location that a user stays in for a predetermined amount of time is automatically saved and the user can subsequently view locations where she has spent the most time based on the date the locations were saved.
 A user can also view the amount of time spent in all saved locations.
