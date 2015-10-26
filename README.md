@@ -16,4 +16,4 @@ Locations of interest are saved in [SQLite](http://developer.android.com/referen
 4. Click the calendar icon on the toolbar from the home screen to view dates when locations were stored. 
 5. Click the location icon on the toolbar from the home screen to view how much time you have spent in unique locations. 
   
-Click here to download app from Google Play
+Click [here](https://play.google.com/store/apps/details?id=co.jibola.locus) here to download app from Google Play.
