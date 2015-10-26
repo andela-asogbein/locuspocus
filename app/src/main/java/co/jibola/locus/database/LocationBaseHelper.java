@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import co.jibola.locus.models.Location;
@@ -83,7 +84,7 @@ public class LocationBaseHelper extends SQLiteOpenHelper{
         return locations;
     }
 
-    public ArrayList<String> getUniqueLocations() {
+    public ArrayList<String> getUniqueAddresses() {
         ArrayList<String> dates = new ArrayList<>();
         try {
             Cursor cursor = db.query(true, LocationTable.NAME, new String[]{LocationTable.Columns.ADDRESS}, null, null, LocationTable.Columns.ADDRESS, null, null, null);
@@ -97,8 +98,23 @@ public class LocationBaseHelper extends SQLiteOpenHelper{
         return dates;
     }
 
-    public long getTimeSpentAtLocations(String location) {
-        Cursor res = db.query(LocationTable.NAME, null, LocationTable.Columns.ADDRESS + "=?", new String[]{location}, null, null, null);
+    public ArrayList<Location> getAddressLocationRecords(String address) {
+        ArrayList<Location> locations = new ArrayList<>();
+        Cursor res = db.query(LocationTable.NAME, null, LocationTable.Columns.ADDRESS + "=?", new String[]{address}, null, null, null);
+        while (res.moveToNext()) {
+            Location location = new Location();
+            location.setLatitude(res.getDouble(res.getColumnIndex(LocationTable.Columns.LATITUDE)));
+            location.setLongitude(res.getDouble(res.getColumnIndex(LocationTable.Columns.LONGITUDE)));
+            location.setDate(res.getString(res.getColumnIndex(LocationTable.Columns.DATE)));
+            location.setDuration(res.getLong(res.getColumnIndex(LocationTable.Columns.DURATION)));
+            location.setAddress(res.getString(res.getColumnIndex(LocationTable.Columns.ADDRESS)));
+            locations.add(location);
+        }
+        return locations;
+    }
+
+    public long getTimeSpentAtAddress(String address) {
+        Cursor res = db.query(LocationTable.NAME, null, LocationTable.Columns.ADDRESS + "=?", new String[]{address}, null, null, null);
         long j = 0;
         while (res.moveToNext()) {
             j = j + res.getLong(res.getColumnIndex(LocationTable.Columns.DURATION));

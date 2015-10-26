@@ -65,6 +65,7 @@ public class LocationsForSelectedDayAdapter extends ArrayAdapter{
             viewHolder.display_address.setText(location.get(position).getAddress());
             viewHolder.display_coordinates.setText(location.get(position).getLatitude()+" , "+location.get(position).getLongitude());
             viewHolder.display_time.setText("You spent " +(location.get(position).getDuration()/60000) +" minutes at this location");
+
         } catch (Exception e) {}
         return view;
     }

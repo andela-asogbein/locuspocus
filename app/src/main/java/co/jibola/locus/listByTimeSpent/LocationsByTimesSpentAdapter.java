@@ -54,7 +54,7 @@ public class LocationsByTimesSpentAdapter extends ArrayAdapter{
             }
 
             viewHolder.locationAddress.setText(address.get(position).toString());
-            long timeSpent  = mLocationBaseHelper.getTimeSpentAtLocations(address.get(position).toString());
+            long timeSpent  = mLocationBaseHelper.getTimeSpentAtAddress(address.get(position).toString());
 
             viewHolder.timeSpentAtLocation.setText("You have spent a total of " + timeSpent/60000 +" minutes at this location");
         } catch (Exception e) {}

@@ -27,7 +27,7 @@ public class LocationBaseHelperTest extends AndroidTestCase {
 
 
     public void testGetTimeSpentAtLocations() {
-        long time = mLocationBaseHelper.getTimeSpentAtLocations("Apata Street");
+        long time = mLocationBaseHelper.getTimeSpentAtAddress("Apata Street");
         assertEquals(time, 0);
     }
 }
