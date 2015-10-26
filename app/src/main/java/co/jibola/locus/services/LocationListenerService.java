@@ -35,7 +35,6 @@ public class LocationListenerService extends Service implements LocationListener
     public static final long FASTEST_UPDATE_INTERVAL_IN_MILLISECONDS = UPDATE_INTERVAL_IN_MILLISECONDS / 2;
 
     private Location mCurrentLocation;
-    protected Boolean mRequestingLocationUpdates = false;
     GoogleApiClient mGoogleApiClient;
     protected LocationRequest mLocationRequest;
 
@@ -118,24 +117,8 @@ public class LocationListenerService extends Service implements LocationListener
         mGoogleApiClient.connect();
     }
 
-    public void setCurrentLocation(Location currentLocation) {
-        mCurrentLocation = currentLocation;
-    }
-
-    public void setRequestingLocationUpdates(Boolean requestingLocationUpdates) {
-        mRequestingLocationUpdates = requestingLocationUpdates;
-    }
-
-    public Boolean getRequestingLocationUpdates() {
-        return mRequestingLocationUpdates;
-    }
-
     @Override
     public void onConnectionFailed(ConnectionResult result) {
-    }
-
-    public GoogleApiClient getGoogleApiClient() {
-        return mGoogleApiClient;
     }
 
     @Override
