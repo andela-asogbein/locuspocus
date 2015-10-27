@@ -58,11 +58,12 @@
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="AIzaSyCxiQyBslEodJHbTHEJ3-zTVvV7flJFOBA" />
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps">
+            android:label="@string/title_activity_maps"
+            android:parentActivityName=".MainActivity">
         </activity>
     </application>
 

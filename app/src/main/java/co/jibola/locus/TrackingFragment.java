@@ -46,6 +46,7 @@ public class TrackingFragment extends Fragment {
                 getActivity().startService(mService);
                 mStopTrackingButton.setVisibility(View.VISIBLE);
                 mStartTrackingButton.setVisibility(View.INVISIBLE);
+                mTimeSeekBar.setEnabled(false);
             }
         });
 
@@ -56,6 +57,7 @@ public class TrackingFragment extends Fragment {
                 getActivity().stopService(mService);
                 mStopTrackingButton.setVisibility(View.INVISIBLE);
                 mStartTrackingButton.setVisibility(View.VISIBLE);
+                mTimeSeekBar.setEnabled(true);
             }
         });
 
