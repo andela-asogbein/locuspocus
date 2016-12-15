@@ -19,3 +19,10 @@ Locations of interest are saved in [SQLite](http://developer.android.com/referen
 5. Click the location icon on the toolbar from the home screen to view how much time you have spent in unique locations. 
   
 Click [here](https://play.google.com/store/apps/details?id=co.jibola.locus) here to download app from Google Play.
+
+### Running locally
+1. Clone the repo or download as a ZIP file and unzip it
+2. Import the project folder into [Android Studio](https://developer.android.com/studio/index.html)
+3. Android Studio will prompt you to download any required dependency or download them automatically 
+4. Run the app on your mobile device or an emulator
+5. Enjoy!
